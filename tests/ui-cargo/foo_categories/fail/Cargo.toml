@@ -1,0 +1,8 @@
+# Content that triggers the lint goes here
+
+[package]
+name = "foo_categories"
+version = "0.1.0"
+publish = false
+
+[workspace]
