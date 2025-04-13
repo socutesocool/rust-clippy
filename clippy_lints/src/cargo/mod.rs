@@ -1,3 +1,4 @@
+mod foo_categories;
 mod common_metadata;
 mod feature_name;
 mod lint_groups_priority;
@@ -213,6 +214,25 @@ declare_clippy_lint! {
     "a lint group in `Cargo.toml` at the same priority as a lint"
 }
 
+declare_clippy_lint! {
+    /// ### What it does
+    ///
+    /// ### Why is this bad?
+    ///
+    /// ### Example
+    /// ```no_run
+    /// // example code where clippy issues a warning
+    /// ```
+    /// Use instead:
+    /// ```no_run
+    /// // example code which does not raise clippy warning
+    /// ```
+    #[clippy::version = "1.88.0"]
+    pub FOO_CATEGORIES,
+    cargo,
+    "default lint description"
+}
+
 pub struct Cargo {
     allowed_duplicate_crates: FxHashSet<String>,
     ignore_publish: bool,
@@ -225,6 +245,7 @@ impl_lint_pass!(Cargo => [
     MULTIPLE_CRATE_VERSIONS,
     WILDCARD_DEPENDENCIES,
     LINT_GROUPS_PRIORITY,
+    FOO_CATEGORIES,
 ]);
 
 impl Cargo {
